@@ -1,19 +1,57 @@
 import './QuestionsPage.css'
+import styled from 'styled-components';
+import QuestionRow from './QuestionRow';
+
+const StyledHeader = styled.h1`
+font-size: 40px;
+`;
+
+const HeaderRow = styled.div`
+display: grid;
+grid-template-columns: 1fr min-content;
+padding: 30px 20px;
+`;
+
+const BlueButton = styled.button`
+    background-color: blue;
+    color: white;
+    border:0;
+    border-radius: 5px;
+    padding: 12px 10px;
+    `;
+
+
+
 
 function QuestionsPage() {
     return (
-        <div className="questionsPage__wrapper">
-            <div className="questionsPage__header">
-                <h1>Top Questions</h1>
-                <button className="questionsPage__askButton">
-                    <h1>Ask Question</h1>
-                </button>
-            </div>
-            <div className="questionsPage__content">
-                {/* Content will go here */}
-            </div>
+        <main>
+           <HeaderRow>
+            <StyledHeader>Top Questions</StyledHeader>
+            <BlueButton>Ask&nbsp;Question</BlueButton>
+           </HeaderRow>
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+           <QuestionRow />
+
+                    
+           
         
-        </div>
+        </main>
+        
+       
     )
 }
 

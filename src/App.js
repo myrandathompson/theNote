@@ -14,6 +14,7 @@ function App() {
       <GlobalStyle />
       <Header />
       <QuestionsPage />
+      
     </div>
   );
 }
