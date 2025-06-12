@@ -1,6 +1,7 @@
 import './QuestionsPage.css'
 import styled from 'styled-components';
 import QuestionRow from './QuestionRow';
+import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.h1`
 font-size: 40px;
@@ -12,12 +13,13 @@ grid-template-columns: 1fr min-content;
 padding: 30px 20px;
 `;
 
-const BlueButton = styled.button`
+const BlueButton = styled(Link)`
     background-color: blue;
     color: white;
     border:0;
     border-radius: 5px;
     padding: 12px 10px;
+    text-decoration: none;
     `;
 
 
@@ -28,7 +30,7 @@ function QuestionsPage() {
         <main>
            <HeaderRow>
             <StyledHeader>Top Questions</StyledHeader>
-            <BlueButton>Ask&nbsp;Question</BlueButton>
+            <BlueButton to={'/ask'}>Ask&nbsp;Question</BlueButton>
            </HeaderRow>
            <QuestionRow />
            <QuestionRow />
