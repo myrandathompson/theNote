@@ -53,7 +53,6 @@ const ProfileLink = styled(Link)`
 color: white;
 text-decoration: none;
 line-height: 50px;
-padding: 0px 10px;
 `;
 
 
@@ -69,16 +68,12 @@ function Header() {
                 <SearchInput type="text" placeholder='Search...' />
             </form>
             {user && (
-                <ProfileLink to={'/profile'} className="profile">{user.email}</ProfileLink>
+                <ProfileLink href="" className="profile">User</ProfileLink>
             )}
             {!user && (
-                <>
-                <ProfileLink to={'/login'} className="profile">Log In</ProfileLink>
-                <ProfileLink to={'/signup'} className="profile">Sign Up</ProfileLink>
-                
-                </>
-                
+                <ProfileLink href="" className="profile">Login</ProfileLink>
             )}
+            
 
         </StyledHeader>
     );
