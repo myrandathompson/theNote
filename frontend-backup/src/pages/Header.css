@@ -1,0 +1,76 @@
+.header {
+  display: grid;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  grid-template-columns: 200px 1fr 200px;
+}
+
+.header__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:crimson
+
+}
+
+.header__search {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    color:rgb(224, 18, 18)
+}
+
+.header__searchContainer {
+    height: 20px;
+    border: 1px solid #31363a;
+    border-radius: 4px;
+    width: 300px;
+    color: rgb(224, 18, 18);
+    display: flex;
+}
+.header__searchContainer > input {
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+    color:rgb(8, 8, 8)
+}
+
+.header__searchContainer > input:focus {
+    outline: none;
+}
+.header__logo img {
+  margin-left: 20px;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+}
+
+
+.StyledHeader {
+  
+  align-items: center;
+  justify-content: space-between;
+  background-color: #444;
+  color: white;
+}
+
+.LogoLink {
+  display: flex;
+  align-items: center;
+}
+
+.LogoLink img {
+  width: 50px;
+  height: auto;
+}
+
+.HeaderTitle {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+ 
+
