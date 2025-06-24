@@ -6,7 +6,7 @@ import UserRoutes from './userRoutes.js';
 import QuestionRoutes from './questionRoutes.js';
 
 const app = express();
-const PORT = process.env.PORT || 5000; // Use 5000 for backend in dev
+const PORT = process.env.PORT || 5001; // Use 5001 for backend in dev
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
