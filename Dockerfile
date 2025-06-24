@@ -9,7 +9,7 @@
     
     # Copy source and build
     COPY frontend/ .
-    RUN yarn build
+
     
     
     ### ---------- BACKEND STAGE ----------
