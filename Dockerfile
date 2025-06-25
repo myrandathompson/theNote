@@ -1,16 +1,4 @@
-### ---------- FRONTEND STAGE ----------
-    FROM node:20 AS frontend
 
-    WORKDIR /app/frontend
-    
-    # Install frontend dependencies
-    COPY frontend/package.json frontend/yarn.lock ./
-    RUN yarn install
-    
-    # Copy source and build
-    COPY frontend/ .
-  
-    
     
     ### ---------- BACKEND STAGE ----------
     FROM node:20 AS backend
@@ -32,7 +20,22 @@
     
     # Expose the backend port
     EXPOSE 5001
+### ---------- FRONTEND STAGE ----------
+    FROM node:20 AS frontend
+
+    WORKDIR /app/frontend
     
+    # Install frontend dependencies
+   
+    RUN yarn install
+    COPY frontend/package.json frontend/yarn.lock ./
+    # Copy source and build
+    COPY frontend/ .
+  
+    
+
+    
+  
     # Run the server (now it will find index.js in /app/api)
-    CMD ["node", "index.js"]
+    CMD ["yarn", "start"]
     
