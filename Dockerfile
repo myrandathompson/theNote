@@ -6,7 +6,7 @@
     WORKDIR /app
     
     # Install backend dependencies
-    COPY api/package.json api/package-lock ./api/
+    COPY api/package.json api/package-lock.json  ./api/
     RUN npm install
     
     # Copy backend source
@@ -27,19 +27,23 @@
     WORKDIR /app/frontend
         
         # Install frontend dependencies
-    COPY frontend/package.json frontend/yarn.lock ./
-    RUN yarn install
+    COPY frontend/package.json frontend/package-lock.json ./
+    
+    COPY frontend/ .
+   
+    
+    
+    RUN npm install
         
         # Copy source and build
-    WORKDIR /frontend
+ 
     
     # Install frontend dependencies
-    COPY frontend/ .
+    
     
 
     # Copy source and build
-   
-    RUN npm install
+
     
 
     
