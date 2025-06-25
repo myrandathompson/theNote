@@ -20,9 +20,17 @@
     
     # Expose the backend port
     EXPOSE 5001
-### ---------- FRONTEND STAGE ----------
+
+    ### ---------- FRONTEND STAGE ----------
     FROM node:20 AS frontend
 
+    WORKDIR /app/frontend
+        
+        # Install frontend dependencies
+    COPY frontend/package.json frontend/yarn.lock ./
+    RUN yarn install
+        
+        # Copy source and build
     WORKDIR /frontend
     
     # Install frontend dependencies
