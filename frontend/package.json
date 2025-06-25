@@ -1,27 +1,31 @@
 {
   "name": "stacked",
   "version": "0.1.0",
-  "private": true,
+  "main": "index.js",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.10.0",
+    "cors": "^2.8.5",
+    "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-markdown": "^10.1.0",
+    "react-scripts": "^5.0.1",
     "remark-gfm": "^4.0.1",
+    "render-and-add-props": "^0.5.0",
     "styled-components": "^6.1.18",
     "styled-reset": "^4.5.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "vite",
+    "start": "serve -s dist",
     "build": "vite build",
+    "dev": "vite",
     "preview": "vite preview"
   },
-  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -43,6 +47,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.6.0",
     "react-router-dom": "^7.6.2",
-    "vite": "^6.3.5"
+    "serve": "^14.2.4",
+    "vite": "^7.0.0"
   }
 }
