@@ -28,21 +28,10 @@
         
         # Install frontend dependencies
     COPY frontend/package.json frontend/package-lock.json ./
-    
-    COPY frontend/ .
-   
-    
-    
+
     RUN npm install
         
-        # Copy source and build
- 
     
-    # Install frontend dependencies
-    
-    
-
-    # Copy source and build
 
     
 
