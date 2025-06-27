@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 import axios from 'axios';
 import BlueButton from './BlueButton';
-import { Navigate } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Header from './Header';
 
 
@@ -81,8 +81,8 @@ function AskPage() {
    
     return (
         <Container>
-            {Navigate && (
-                <Navigate to={'/questions'} />
+            {Redirect && (
+                <Redirect to={'./questions'} />
             )}
             <Header style={{marginBottom: '20px'}}>Ask A Question</Header>
             <form onSubmit={Event => PreviewQuestion(Event)}>

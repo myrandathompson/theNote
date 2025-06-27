@@ -27,8 +27,8 @@
     WORKDIR /app/frontend
         
         # Install frontend dependencies
-    COPY frontend/package.json frontend/yarn.lock ./
-    RUN yarn install
+    COPY frontend/package.json frontend/package-lock.json ./
+    RUN npm install
         
         # Copy source and build
     WORKDIR /frontend
