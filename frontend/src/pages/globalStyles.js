@@ -1,3 +1,4 @@
+
 // globalStyles.js
 import { createGlobalStyle } from 'styled-components';
  
@@ -14,6 +15,36 @@ body {
     padding: 0;
     background: #f0f0f0;
     
+  }
+
+  b,strong{
+    font-weight:700;
+  }
+
+  a{
+    color:darkmagenta;
+  }
+
+  p{
+    margin:10px 0;
+    line-height: 1.5rem;
+  }
+
+  h1,h2{
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  h1{
+    font-size: 1.8rem;
+  }
+  h2{
+    font-size: 1.6rem;
+  }
+  blockQuote{
+    background-color: grey;
+    padding: 15px;
+    border-radius: 4px;
   }
 `;
  
