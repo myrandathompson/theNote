@@ -5,7 +5,7 @@ import QuestionRow from './QuestionRow';
 import Header from './Header';
 import GlobalHeader from './GlobalHeader';
 import BlueButton from './BlueButton';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import { NavLink } from 'react-router-dom';
