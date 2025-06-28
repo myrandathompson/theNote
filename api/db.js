@@ -78,7 +78,7 @@ const db = knex({
 
 export default db;
 
-// If you still want to create tables imperatively (NOT recommended for production):
+
 const setupTables = async () => {
   try {
     // Create 'users' table if it doesn't exist
