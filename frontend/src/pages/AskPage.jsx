@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import Input from './input';
-import AskBlueButton from './AskBlueButton';
+// import AskBlueButton from './AskBlueButton';
 import React from 'react';
-import Markdown from 'https://esm.sh/react-markdown@10'
-import gfm from 'remark-gfm';
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { useState } from 'react';
 
-import axios from 'axios';
+// import axios from 'axios';
 import BlueButton from './BlueButton';
-import { Redirect } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import Header from './Header';
 
 
@@ -48,24 +48,24 @@ color: black;
 
 function AskPage() {
 
-    const [questionTitle, setQuestionTitle] = useState(initialState, '');
-    const [questionBody, setQuestionBody] = useState(initialState, '');
-    const [Navigate, setRedirect] = useState('');
+    const [questionTitle, setQuestionTitle] = useState('');
+    const [questionBody, setQuestionBody] = useState('');
+    const [Navigate] = useState('');
     
 
 
-    function askQuestion(Event) {
-        Event.preventDefault();
-        axios.post('https://localhost:3001/questions', {
-            title: questionTitle,
-            content: questionBody,
-        }, {withCreditals:true})
-        .then(response => {
-            console.log(response.data);
-            setRedirect('/questions'+response.data);
+    // function askQuestion(Event) {
+    //     Event.preventDefault();
+    //     axios.post('https://localhost:3001/questions', {
+    //         title: questionTitle,
+    //         content: questionBody,
+    //     }, {withCreditals:true})
+    //     .then(response => {
+    //         console.log(response.data);
+    //         useNavigate('/questions'+response.data);
 
-        });
-    }
+    //     });
+    // }
     
     
 
@@ -81,8 +81,8 @@ function AskPage() {
    
     return (
         <Container>
-            {Redirect && (
-                <Redirect to={'./questions'} />
+            {Navigate && (
+                <Navigate to={'./questions'} />
             )}
             <Header style={{marginBottom: '20px'}}>Ask A Question</Header>
             <form onSubmit={Event => PreviewQuestion(Event)}>
@@ -95,7 +95,7 @@ function AskPage() {
             onChange={e => setQuestionBody(e.target.value)}
             placeholder="More information about your question." value={questionBody} />
             <PreviewQuestion>
-                <Markdown plugins={[gfm]} children={questionBody} />
+                <ReactMarkdown plugins={[remarkGfm]} children={questionBody} />
             </PreviewQuestion>
             
             <BlueButton type={'submit'}>Submit Question</BlueButton>
