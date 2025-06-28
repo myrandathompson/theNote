@@ -138,18 +138,23 @@ import cookieParser from 'cookie-parser';
 import jwt from 'jsonwebtoken';
 import UserRoutes from './userRoutes.js';
 import QuestionRoutes from './questionRoutes.js';
+var app = express();
 
-const app = express();
+
+var cors = require('cors');
+app.use(cors());
+
+
 const PORT = process.env.PORT || 5001;
 
-const JWT_SECRET = 'shhhhh';  // Use a strong secret in production!
-const JWT_OPTIONS = { expiresIn: '1h' }; // example token expiration
+const JWT_SECRET = 'shhhhh';  
+const JWT_OPTIONS = { expiresIn: '1h' }; 
 
-// Middleware order matters!
 
-// Enable CORS with credentials from your frontend origin
+
+// Enable CORS with credentials 
 app.use(cors({
-  origin: 'http://localhost:3000', // Adjust frontend URL and port as needed
+  origin: 'http://localhost:3000', 
   credentials: true,
 }));
 
@@ -160,7 +165,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Parse cookies
 app.use(cookieParser());
 
-// Register your route modules
+// Register route modules
 app.use(UserRoutes);
 app.use(QuestionRoutes);
 
@@ -179,7 +184,7 @@ app.get('/profile', (req, res) => {
     if (err) {
       return res.status(403).json({ message: 'Forbidden - invalid token' });
     }
-    // decoded contains your payload, e.g. { email: 'test@email.com', iat: ..., exp: ... }
+    //  payload,
     res.status(200).json({ email: decoded.email });
   });
 });
