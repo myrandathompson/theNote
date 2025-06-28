@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Input from './input';
 import  BlueButton from './BlueButton';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 const Container = styled.div`
 padding: 30px 20px;`
