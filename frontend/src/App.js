@@ -1,43 +1,62 @@
-import { Reset } from 'styled-reset';
-import React from 'react';
-import GlobalStyle from './pages/globalStyles.js';
+import ReactDOM from 'react-dom/client';
+import React, { useState } from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Layout from "./pages/Layout";
+import NoPage from './pages/NoPage';
+import QuestionsPage from './pages/QuestionsPage';
+import AskPage from './pages/AskPage';
+import UserContext from './pages/UserContext';
+import LoginPage from './pages/LoginPage';
 
-import Header from './pages/Header.js';
-import QuestionsPage from './pages/QuestionsPage.js';
-import './pages/AskPage.js'; // Importing AskPage for routing purposes
-import { BrowserRouter as Router, Routes, Route, Link  } from 'react-router-dom';
-import AskPage from './pages/AskPage.js';
+import axios from 'axios';
+import SignupPage from './pages/signupPage';
+import ProfilePage from './pages/ProfilePage';
+// import GlobalStyle from './pages/globalStyles';
 
 
 
+export default function App() {
+  const [user,setUser] = useState(null);
+  axios.defaults.withCredentials = true;
+ 
+  axios.interceptors.response.use(
+    response => response,
+    error => {
+      if (error.response.status === 401) {
+        setUser(null);
+      }
+      return Promise.reject(error);
+    }
+  );
+  axios.get('/api/user')
+    .then(response => {
+      setUser(response.data);
+    })
+    .catch(error => {
+      console.error('Error fetching user data:', error);
+    });
 
-function App1() {
+    
   return (
-    <div>
-      <Header />
-      <Reset />
-      <GlobalStyle />
-      <BrowserRouter>
-        <Router>
-          <Routes>
-            <Route path="/ask" element={<AskPage />} />
-            <Route path="/" element={<QuestionsPage />} />
-          
-          </Routes>
-          
-            
-          
-        
-        
-      </Router>
+    <BrowserRouter>
+    <UserContext.Provider value={{user}}>
+      <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route index element={<QuestionsPage />} />
+        <Route path="/ask" element={<AskPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+ 
+        <Route path="*" element={<NoPage />} />
+      </Route>
+      </Routes>
+    </UserContext.Provider>
+    
       </BrowserRouter>
-      
-        
-      
-      
-      
-    </div>
   );
 }
 
-export default App1;
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
