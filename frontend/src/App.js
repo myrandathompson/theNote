@@ -9,7 +9,7 @@ import UserContext from './pages/UserContext';
 import LoginPage from './pages/LoginPage';
 
 import axios from 'axios';
-import SignupPage from './pages/signupPage';
+import SignupPage from './pages/SignupPage';
 import ProfilePage from './pages/ProfilePage';
 // import GlobalStyle from './pages/globalStyles';
 
