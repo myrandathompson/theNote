@@ -7,6 +7,7 @@ import QuestionsPage from './pages/QuestionsPage';
 import AskPage from './pages/AskPage';
 import UserContext from './pages/UserContext';
 import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
 
 
@@ -21,6 +22,7 @@ export default function App() {
         <Route index element={<QuestionsPage />} />
         <Route path="/ask" element={<AskPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
         <Route path="*" element={<NoPage />} />
       </Route>
       </Routes>
