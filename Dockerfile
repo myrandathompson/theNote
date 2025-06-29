@@ -6,7 +6,7 @@
         WORKDIR /app/backend/
         
         # Copy backend package files first, install dependencies
-        COPY api/package.json api/package-lock.json ./
+        COPY /package.json /package-lock.json ./
         RUN npm install
         
         # Copy backend source
