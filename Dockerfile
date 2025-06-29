@@ -1,12 +1,7 @@
-
-
-
-# ---------- Stage 1: Build React frontend ----------
-   
-    # ---------- Stage 2: Build and run Express backend ----------
+# ---------- Stage 2: Build and run Express backend ----------
     FROM node:20
     
-    WORKDIR /app/api
+    WORKDIR /app/backend/api
     
     # Copy backend package files first, install dependencies
     COPY api/package.json api/package-lock.json ./
@@ -14,7 +9,7 @@
     
     # Copy backend source
     COPY . .
-    RUN npm run build
+    
     # Copy built frontend into backend's public folder (if serving static files from Express)
     # COPY --from=frontend-builder /app/frontend/build ./public
     
@@ -27,18 +22,11 @@
 
     WORKDIR /app/frontend
     
-   
-    COPY . .
-    
+    COPY frontend/package.json frontend/package-lock.json ./
     RUN npm install
     
-   
-   
-
-   
-   
-   
- 
+    COPY frontend/ ./
+    RUN npm run build
     
     
     # Start Express server
