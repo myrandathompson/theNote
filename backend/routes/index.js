@@ -135,12 +135,17 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import jwt from 'jsonwebtoken';
-import UserRoutes from './api/userRoutes.js';
-import QuestionRoutes from './api/questionRoutes.js';
 
-const express = require('express');
-const app = express();
+import UserRoutes from './userRoutes.js';
+import QuestionRoutes from './questionRoutes.js';
+var app = express();
+
+
+var cors = require('cors');
+app.use(cors());
+
+
+
 const PORT = process.env.PORT || 5001;
 
 const JWT_SECRET = 'shhhhh';  
@@ -151,7 +156,9 @@ const JWT_OPTIONS = { expiresIn: '1h' };
 // Enable CORS with credentials 
 app.use(cors({
   origin: 'http://localhost:3000', // Adjust frontend URL and port as needed
-  
+
+  credentials: true,
+
 }));
 
 // Parse JSON and URL-encoded bodies
@@ -171,6 +178,7 @@ app.get('/', (req, res) => {
 });
 
 // Profile route - protected, requires valid JWT cookie
+
 // app.get('/profile', (req, res) => {
 //   const token = req.cookies.jwt;
 //   if (!token) {
