@@ -14,7 +14,7 @@
     
     # Copy backend source
     COPY . .
-    
+    RUN npm run build
     # Copy built frontend into backend's public folder (if serving static files from Express)
     # COPY --from=frontend-builder /app/frontend/build ./public
     
@@ -27,19 +27,18 @@
 
     WORKDIR /app/frontend
     
-    COPY frontend/package.json frontend/package-lock.json ./
-    
-    
+   
+    COPY . .
     
     RUN npm install
     
    
    
-    COPY . .
+
    
    
    
-    RUN npm run build
+ 
     
     
     # Start Express server
