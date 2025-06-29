@@ -12,7 +12,7 @@
     
     # Copy built frontend into backend's public folder (if serving static files from Express)
     # COPY --from=frontend-builder /app/frontend/build ./public
-    
+    RUN npm run build
     # Expose backend port
     EXPOSE 3000
 
@@ -24,17 +24,17 @@
     
     COPY frontend/package.json frontend/package-lock.json ./
     
-    
+    copy . .
     
     RUN npm install
     
    
    
-    COPY frontend/ ./
+    
    
    
    
-    RUN npm run build
+    
     
     
     # Start Express server
