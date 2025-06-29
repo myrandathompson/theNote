@@ -35,7 +35,7 @@
     
    
    
-    COPY frontend/ ./
+    COPY . .
    
    
    
