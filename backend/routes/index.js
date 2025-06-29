@@ -135,7 +135,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import jwt from 'jsonwebtoken';
+
 import UserRoutes from './userRoutes.js';
 import QuestionRoutes from './questionRoutes.js';
 var app = express();
@@ -143,6 +143,7 @@ var app = express();
 
 var cors = require('cors');
 app.use(cors());
+
 
 
 const PORT = process.env.PORT || 5001;
@@ -155,7 +156,9 @@ const JWT_OPTIONS = { expiresIn: '1h' };
 // Enable CORS with credentials 
 app.use(cors({
   origin: 'http://localhost:3000', // Adjust frontend URL and port as needed
+
   credentials: true,
+
 }));
 
 // Parse JSON and URL-encoded bodies
@@ -175,19 +178,56 @@ app.get('/', (req, res) => {
 });
 
 // Profile route - protected, requires valid JWT cookie
-app.get('/profile', (req, res) => {
-  const token = req.cookies.jwt;
-  if (!token) {
-    return res.status(401).json({ message: 'Unauthorized - no token' });
-  }
-  jwt.verify(token, JWT_SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(403).json({ message: 'Forbidden - invalid token' });
-    }
-    // decoded contains your payload, e.g. { email: 'test@email.com', iat: ..., exp: ... }
-    res.status(200).json({ email: decoded.email });
-  });
+
+// app.get('/profile', (req, res) => {
+//   const token = req.cookies.jwt;
+//   if (!token) {
+//     return res.status(401).json({ message: 'Unauthorized - no token' });
+//   }
+//   jwt.verify(token, JWT_SECRET, (err, decoded) => {
+//     if (err) {
+//       return res.status(403).json({ message: 'Forbidden - invalid token' });
+//     }
+//     // decoded contains your payload, e.g. { email: 'test@email.com', iat: ..., exp: ... }
+//     res.status(200).json({ email: decoded.email });
+//   });
+// });
+
+
+
+// // GET /api/set-token-cookie
+const { setTokenCookie } = require('../utils/auth.js');
+const { User } = require('../../db/models');
+router.get('/set-token-cookie', async (_req, res) => {
+  const user = await User.findOne({
+      where: {
+        username: 'Demo-lition'
+      }
+    });
+  setTokenCookie(res, user);
+  return res.json({ user: user });
 });
+
+
+router.get(
+  '/restore-user',
+  (req, res) => {
+    return res.json(req.user);
+  }
+);
+
+
+
+// GET /api/require-auth
+const { requireAuth } = require('../utils/auth.js');
+router.get(
+  '/require-auth',
+  requireAuth,
+  (req, res) => {
+    return res.json(req.user);
+  }
+);
+
 
 // Login route
 app.post('/login', (req, res) => {
