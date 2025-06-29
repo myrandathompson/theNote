@@ -1,34 +1,49 @@
-# ---------- Stage 2: Build and run Express backend ----------
-    FROM node:20
-    
-    WORKDIR /app/backend/api
-    
-    # Copy backend package files first, install dependencies
-    COPY api/package.json api/package-lock.json ./
-    RUN npm install
-    
-    # Copy backend source
-    COPY . .
-    
-    # Copy built frontend into backend's public folder (if serving static files from Express)
-    # COPY --from=frontend-builder /app/frontend/build ./public
-    
-    # Expose backend port
-    EXPOSE 3000
 
-
-
-    FROM node:20 AS frontend-builder
-
-    WORKDIR /app/frontend
     
-    COPY frontend/package.json frontend/package-lock.json ./
-    RUN npm install
+    ### ---------- BACKEND STAGE ----------
+        FROM node:20 AS backend
     
-    COPY frontend/ ./
-    RUN npm run build
+        WORKDIR /app/backend
+        
+        # Install backend dependencies
+        COPY api/package.json api/package-lock ./api/
+        RUN npm install
+        
+        # Copy backend source
+        COPY backend/ ./backend/
+        
+        # Copy frontend build into backend's public folder
+        COPY --from=frontend /app/frontend/build ./api/public
+        
+        # Set working directory to backend folder
+        WORKDIR /backend
+        
+        # Expose the backend port
+        EXPOSE 5001
     
+        ### ---------- FRONTEND STAGE ----------
+        FROM node:20 AS frontend
     
-    # Start Express server
-    CMD ["npm", "start"]
+        WORKDIR /app/frontend
+            
+            # Install frontend dependencies
+        COPY frontend/package.json frontend/package-lock.json ./
+        RUN npm install
+            
+            # Copy source and build
+        WORKDIR /frontend
+        
+        # Install frontend dependencies
+        COPY frontend/ .
+        
     
+        # Copy source and build
+       
+        RUN npm install
+        
+    
+        
+      
+        # Run the server (now it will find index.js in /app/api)
+        CMD ["npm", "start"]
+        
