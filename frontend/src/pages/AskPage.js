@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { useState } from 'react';
 
-import axios from 'axios';
+// import axios from 'axios';
 import BlueButton from './BlueButton';
 // import { Navigate } from 'react-router-dom';
 import Header from './Header';
@@ -49,23 +49,23 @@ function AskPage() {
 
     const [questionTitle, setQuestionTitle] = useState('');
     const [questionBody, setQuestionBody] = useState('');
-    const [Navigate, useNavigate] = useState('');
+    const [Navigate] = useState('');
     
     
 
 
-    function askQuestion(Event) {
-        Event.preventDefault();
-        axios.post('https://localhost:3001/questions', {
-            title: questionTitle,
-            content: questionBody,
-        }, {withCreditals:true})
-        .then(response => {
-            console.log(response.data);
-            useNavigate('/questions'+response.data);
+    // function question(Event) {
+    //     Event.preventDefault();
+    //     axios.post('https://localhost:3001/questions', {
+    //         title: questionTitle,
+    //         content: questionBody,
+    //     }, {withCreditals:true})
+    //     .then(response => {
+    //         console.log(response.data);
+    //         Navigate('/questions'+response.data);
 
-        });
-    }
+    //     });
+    // }
     
     
 

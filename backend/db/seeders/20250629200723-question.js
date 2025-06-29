@@ -7,30 +7,27 @@ if (process.env.NODE_ENV === 'production') {
 }
 /** @type {import('sequelize-cli').Migration} */
 export async function up(queryInterface, Sequelize) {
-  await queryInterface.bulkInsert('Answers', [
+  await queryInterface.bulkInsert('Questions', [
     {
-      questionId: 1,
-      userId: 2,
-      answer: 'The capital of France is Paris.',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      questionId: 2,
       userId: 1,
-      answer: 'Asynchronous programming allows non-blocking execution in JavaScript using callbacks, promises, or async/await.',
+      description: 'What is the capital of France?',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      questionId: 3,
       userId: 2,
-      answer: 'Docker containers isolate applications, making them portable and consistent across environments.',
+      description: 'How does JavaScript asynchronous programming work?',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    {
+      userId: 3,
+      description: 'What are the benefits of using Docker containers?',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
   ]);
 }
 export async function down(queryInterface, Sequelize) {
-  await queryInterface.bulkDelete('Answers', null, {});
+  await queryInterface.bulkDelete('Questions', null, {});
 }
