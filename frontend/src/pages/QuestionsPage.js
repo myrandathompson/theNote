@@ -8,7 +8,7 @@ import BlueButton from './BlueButton';
 // import PropTypes from 'prop-types';
 import axios from 'axios';
 
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const HeaderRow = styled.div`
 display: grid;
@@ -34,7 +34,7 @@ function QuestionsPage() {
            <HeaderRow>
             <GlobalHeader>QUESTIONS</GlobalHeader>
             <BlueButton>
-                <NavLink to="/ask">Questions</NavLink>
+                <Link to="/ask">Questions</Link>
                 </BlueButton>
            </HeaderRow>
            {questions && questions.length > 0 && questions.map(question => (
