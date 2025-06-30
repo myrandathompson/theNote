@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+
 import React, { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Layout from "./pages/Layout";
@@ -8,6 +8,8 @@ import AskPage from './pages/AskPage';
 import UserContext from './pages/UserContext';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import { createRoot } from 'react-dom/client';
+
 
 
 
@@ -33,5 +35,6 @@ export default function App() {
 }
 
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const root = createRoot(document.getElementById('root'));
 root.render(<App />);

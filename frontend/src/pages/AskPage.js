@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Input from './input';
 // import AskBlueButton from './AskBlueButton';
 import React from 'react';
-import ReactMarkdown from 'react-markdown'
+import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { useState } from 'react';
 
@@ -93,7 +93,7 @@ function AskPage() {
             onChange={e => setQuestionBody(e.target.value)}
             placeholder="More information about your question." value={questionBody} />
             <PreviewQuestion>
-                <ReactMarkdown plugins={[remarkGfm]} children={questionBody} />
+                <Markdown plugins={[remarkGfm]} children={questionBody} />
             </PreviewQuestion>
             
             <BlueButton type={'submit'}>Submit Question</BlueButton>
