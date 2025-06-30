@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken');
-const { jwtConfig } = require('../db/config');
-const { User } = require('../db/models1');
+import { sign, verify } from 'jsonwebtoken';
+import { jwtConfig } from '../db/config';
+import { User } from '../db/models1';
 
 const { secret, expiresIn } = jwtConfig;
 
@@ -45,7 +45,7 @@ const setTokenCookie = (res, user) => {
       email: user.email,
       username: user.username,
     };
-    const token = jwt.sign(
+    const token = sign(
       { data: safeUser },
       secret,
       { expiresIn: parseInt(expiresIn) } // 604,800 seconds = 1 week
@@ -70,7 +70,7 @@ const setTokenCookie = (res, user) => {
     const { token } = req.cookies;
     req.user = null;
   
-    return jwt.verify(token, secret, null, async (err, jwtPayload) => {
+    return verify(token, secret, null, async (err, jwtPayload) => {
       if (err) {
         return next();
       }
@@ -105,7 +105,7 @@ const requireAuth = function (req, _res, next) {
   }
 
 
-  module.exports = { setTokenCookie, restoreUser, requireAuth };
+  export default { setTokenCookie, restoreUser, requireAuth };
 // // Sends a JWT Cookie
 // const setTokenCookie = (res, user) => {
 //     // Create the token.
