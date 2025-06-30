@@ -69,7 +69,7 @@ function QuestionRow({title,id}) {
         <QuestionStat>1<span>answers</span></QuestionStat>
         <QuestionStat>6<span>views</span></QuestionStat>
         <QuestionTitleArea>
-            <QuestionLink to={'questions/'}>{title}</QuestionLink>
+            <QuestionLink to={'/questions'}>{title}</QuestionLink>
             <Tag>javascript</Tag>
             <Tag>parsing</Tag>
             <Tag>quotes</Tag>

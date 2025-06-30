@@ -9,6 +9,7 @@ import UserContext from './pages/UserContext';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import { createRoot } from 'react-dom/client';
+import QuestionPage from './pages/QuestionPage';
 
 
 
@@ -26,6 +27,8 @@ export default function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="*" element={<NoPage />} />
+        <Route path="/questions" element={<QuestionsPage />} />
+        <Route path="/question" element={<QuestionPage />} />
       </Route>
       </Routes>
     </UserContext.Provider>

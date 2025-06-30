@@ -75,6 +75,7 @@ function Header() {
                 <>
                 <ProfileLink to={'/login'} className="profile">Log In</ProfileLink>
                 <ProfileLink to={'/signup'} className="profile">Sign Up</ProfileLink>
+                <ProfileLink to={'/ask'} className="question">Ask</ProfileLink>
                 
                 </>
                 

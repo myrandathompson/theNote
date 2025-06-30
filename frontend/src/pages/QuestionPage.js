@@ -1,18 +1,19 @@
+import React from 'react';
 import styled from "styled-components";
+
 import {useEffect,useState} from 'react';
 import axios from 'axios';
 import Header from "./Header";
-import ReactMarkdown from 'react-markdown'
+import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
 const Container = styled.div`
 padding: 30px 20px;
 `;
-
-function questionPage({match}) {
-    const [question,setQuestion] = useState(false)
+function QuestionPage() {
+    const [question,setQuestion] = useState()
     function fetchQuestion() {
-        axios.get('./questions'+match.params.id)
+        axios.get('./question')
         .then(response => {
             setQuestion(response.data);
         });
@@ -24,7 +25,7 @@ function questionPage({match}) {
             {question && (
                 <>
                 <Header>{question && question.title}</Header>
-                <ReactMarkdown plugins={[remarkGfm]} children={question} />
+                <Markdown plugins={[remarkGfm]} children={question} />
                 </>
             
 
@@ -38,4 +39,4 @@ function questionPage({match}) {
     );
 }
 
-export default questionPage
+export default QuestionPage;
