@@ -2,8 +2,8 @@ import styled from "styled-components";
 import {useEffect,useState} from 'react';
 import axios from 'axios';
 import Header from "./Header";
-import Markdown from 'react-markdown';
-import remarkGfm from 'https://esm.sh/remark-gfm@4'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 const Container = styled.div`
 padding: 30px 20px;
@@ -12,7 +12,7 @@ padding: 30px 20px;
 function questionPage({match}) {
     const [question,setQuestion] = useState(false)
     function fetchQuestion() {
-        axios.get('http://localhost:3030/questions'+match.params.id)
+        axios.get('./questions'+match.params.id)
         .then(response => {
             setQuestion(response.data);
         });
@@ -24,7 +24,7 @@ function questionPage({match}) {
             {question && (
                 <>
                 <Header>{question && question.title}</Header>
-                <Markdown plugins={[remarkGfm]} children={question} />
+                <ReactMarkdown plugins={[remarkGfm]} children={question} />
                 </>
             
 

@@ -24,7 +24,7 @@ padding: 30px 20px;
 function QuestionsPage() {
     const [questions,setQuestions] = useState([]);
     function fetchQuestions() {
-        axios.get('http://localhost:3001/questions', {withCredentials:true})
+        axios.get('./questions', {withCredentials:true})
         .then(response => setQuestions(response.data));
     }
     useEffect(() => fetchQuestions(), []);

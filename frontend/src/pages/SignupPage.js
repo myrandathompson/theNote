@@ -28,7 +28,7 @@ class SignupPage extends Component {
   signup() {
     
     axios.post(
-        'http://localhost:3001/signup', 
+        './signup', 
         {
           email: this.state.email,
           password: this.state.password,
@@ -52,7 +52,7 @@ class SignupPage extends Component {
   render() {
     return(<>
     {this.state.redirectToHomepage && (
-      <Navigate to={'/'} />
+      <Navigate to={'/signup'} />
     )}
       <Container>
         <Header style={{ marginBottom: '20px' }}>Signup</Header>
