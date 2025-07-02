@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import logo from './logo.png';
 import './Header.css'
 import { Link } from 'react-router-dom';
-import UserContext from './UserContext';
+import { UserContext } from '../context/UserContext'; 
 
 const StyledHeader = styled.header`
     background-color: #f8f9fa;
@@ -48,6 +48,15 @@ const SearchInput = styled.input`
     margin-top: 9px;
 
 `;
+
+
+
+// const HeaderRow = styled.div`
+// display: grid;
+// grid-template-columns: 1fr min-content;
+// padding: 30px 20px;
+// `;
+
 
 const ProfileLink = styled(Link)`
 color: white;

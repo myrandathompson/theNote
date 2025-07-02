@@ -1,0 +1,56 @@
+.askQuestion {
+    min-height: 80vh;
+    background-color: lightblue;
+}
+
+.askQuestionContainer {
+    margin: auto;
+    padding: 0px 20px 20px 20px;
+    max-width: 1200px;
+}
+
+.askQuestionContainer h1 {
+    padding: 80px 0px 20px 0px;
+}
+
+
+.askQuestionContainer form .askFormContainer {
+    padding: 20px;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 0 20px 48px rgb(0 0 0 / 5%),
+    0 1px 4px rgb(0 0 0 / 10%);
+}
+
+.askFormContainer label h4 {
+    margin-bottom: 0%;
+}
+
+.askFormContainer label p {
+    margin: 0%;
+    font-size: 13px;
+    padding: 3px 0px;
+}
+
+.askFormContainer label input,
+.askFormContainer label textarea {
+    padding: 10px;
+    border: solid 1px black;
+    width: calc(100% - 20px);
+    resize: none;
+}
+
+.review-btn {
+    margin: 50px 0px;
+    padding: 10px;
+    background-color: mediumturquoise;
+    border: solid 1px black;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.review-btn:hover {
+    background-color: white;
+}

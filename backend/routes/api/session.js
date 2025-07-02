@@ -30,7 +30,7 @@ const validateLogin = [
 ];
 
 // POST /api/session - Log in a user
-router.post('/login', validateLogin, async (req, res) => {
+router.post('/api/session', validateLogin, async (req, res) => {
     const { credential, password } = req.body;
 
     // Find user by credential (email or username) and validate password
@@ -56,7 +56,7 @@ router.post('/login', validateLogin, async (req, res) => {
 
 
 // GET /api/session - Get current user
-router.get('/login', restoreUser, (req, res) => {
+router.get('/api/session', restoreUser, (req, res) => {
     const { user } = req;
 
     if (user) {
@@ -71,7 +71,7 @@ router.get('/login', restoreUser, (req, res) => {
 });
 
 // DELETE /api/session - Logout
-router.delete('/', (_req, res) => {
+router.delete('/api/session', (_req, res) => {
     res.clearCookie('token');
     return res.json({ message: 'success' });
 });

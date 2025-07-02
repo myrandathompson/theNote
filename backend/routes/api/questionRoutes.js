@@ -6,7 +6,7 @@ const QuestionRoutes = express.Router();
 
 
 
-QuestionRoutes.post('/questions', (req, res) => {
+QuestionRoutes.post('/api/questions', (req, res) => {
     const {title,content} = req.body;
     const {token} = req.cookies;
     db.select('id')
@@ -30,7 +30,7 @@ QuestionRoutes.post('/questions', (req, res) => {
 
 })
 
-QuestionRoutes.get('questions/:id', (req, res) => {
+QuestionRoutes.get('/api/questions/:id', (req, res) => {
     const id = req.params.id;
     db.select('*')
     .from('post')
@@ -43,7 +43,7 @@ QuestionRoutes.get('questions/:id', (req, res) => {
 });
 
 
-QuestionRoutes.get('/questions', (res,req) => {
+QuestionRoutes.get('/api/questions', (res,req) => {
     db.select('*')
     .from('posts')
     .where({parent_id: null})

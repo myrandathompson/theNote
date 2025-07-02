@@ -1,7 +1,7 @@
 // backend/routes/api/questions.js
 import { Router } from 'express';
 import { requireAuth } from '../../utils/auth';
-import { Question, User } from '../../db/models1';
+import { Question, User } from '../../db/models';
 // import { check, validationResult } from 'express-validator';
 
 const askQuestionRoutes = express.Router();
@@ -12,7 +12,7 @@ const askQuestionRoutes = express.Router();
 
 
 //  Create a question
-askQuestionRoutes.post('/questions', requireAuth, validatequestion, async (req, res, next) => {
+askQuestionRoutes.post('/api/questions', requireAuth, validatequestion, async (req, res, next) => {
   const { Question } = req.params;
   
   const { id: userId } = req.user;
@@ -29,7 +29,7 @@ askQuestionRoutes.post('/questions', requireAuth, validatequestion, async (req, 
 );
 
 // GET /api/session/questions - Get all questions of the current user
-askQuestionRoutes.get('/session/questions', requireAuth, async (req, res, next) => {
+askQuestionRoutes.get('/api/session', requireAuth, async (req, res, next) => {
     const { id: email } = req.user;
 
     try {
@@ -64,7 +64,7 @@ askQuestionRoutes.get('/session/questions', requireAuth, async (req, res, next) 
 
 
 // PUT /api/questions/:questionId - Edit a question
-askQuestionRoutes.put('/questions/:questionId', requireAuth, validatequestion, async (req, res, next) => {
+askQuestionRoutes.put('/api/questions/:questionId', requireAuth, validatequestion, async (req, res, next) => {
   const { questionId } = req.params;
 //   const { questionBody } = req.body;
   const { id: userId } = req.user;
@@ -100,7 +100,7 @@ askQuestionRoutes.put('/questions/:questionId', requireAuth, validatequestion, a
 });
 
 // DELETE /api/questions/:questionId - Delete a question
-askQuestionRoutes.delete('/questions/:questionId', requireAuth, async (req, res, next) => {
+askQuestionRoutes.delete('/api/questions/:questionId', requireAuth, async (req, res, next) => {
   const { questionId } = req.params;
   const { id: userId } = req.user;
 

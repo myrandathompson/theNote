@@ -14,7 +14,7 @@ const UserRoutes = express.Router();
 UserRoutes.use(cookieParser());
 
 // Login route
-UserRoutes.post('/login', (req, res) => {
+UserRoutes.post('/api/session', (req, res) => {
     const { email, password } = req.body;
 
     db('users')
@@ -84,7 +84,7 @@ UserRoutes.get('/', (req, res) => {
 });
 
 //logout route
-UserRoutes.get('/logout', function (req, res) {
+UserRoutes.get('/api/logout', function (req, res) {
     req.logOut();
     res.status(200).clearCookie('token', {
       path: '/'

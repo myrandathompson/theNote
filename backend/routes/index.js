@@ -135,7 +135,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-
+import router from './api/session.js';
 import UserRoutes from './userRoutes.js';
 import QuestionRoutes from './questionRoutes.js';
 var app = express();
