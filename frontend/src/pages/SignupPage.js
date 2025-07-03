@@ -5,7 +5,7 @@ import Input from './input';
 import BlueButton from './BlueButton';
 import axios from 'axios';
 import { Navigate } from 'react-router-dom';
-import { UserContext } from '../context/UserContext'; 
+import { UserContext } from '../context/UserContext';
 
 const Container = styled.div`
 padding: 30px 20px;

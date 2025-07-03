@@ -8,13 +8,13 @@ import db from '../../db.js';
 const secret = jwt.sign({ foo: 'bar'}, 'shhhhh');
 
 
-const UserRoutes = express.Router();
+const router = express.Router();
 
 // Middleware to parse cookies
-UserRoutes.use(cookieParser());
+router.use(cookieParser());
 
 // Login route
-UserRoutes.post('/api/session', (req, res) => {
+router.post('/api/session', (req, res) => {
     const { email, password } = req.body;
 
     db('users')
@@ -47,7 +47,7 @@ UserRoutes.post('/api/session', (req, res) => {
 
 
 // Signup route
-UserRoutes.post('/signup', async (req, res) => {
+router.post('/signup', async (req, res) => {
     const { email, password } = req.body;
   
     try {
@@ -69,7 +69,7 @@ UserRoutes.post('/signup', async (req, res) => {
   
 
 // Profile route (protected)
-UserRoutes.get('/', (req, res) => {
+router.get('/', (req, res) => {
     const token = req.cookies.jwt;
     if (!token) {
         return res.status(401).send({ message: 'Unauthorized' });
@@ -84,7 +84,7 @@ UserRoutes.get('/', (req, res) => {
 });
 
 //logout route
-UserRoutes.get('/api/logout', function (req, res) {
+router.get('/api/logout', function (req, res) {
     req.logOut();
     res.status(200).clearCookie('token', {
       path: '/'
@@ -94,4 +94,4 @@ UserRoutes.get('/api/logout', function (req, res) {
     });
   });
 
-export default UserRoutes;
+export default router;

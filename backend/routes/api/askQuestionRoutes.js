@@ -4,7 +4,7 @@ import { requireAuth } from '../../utils/auth';
 import { Question, User } from '../../db/models';
 // import { check, validationResult } from 'express-validator';
 
-const askQuestionRoutes = express.Router();
+const router = express.Router();
 
 
 
@@ -12,7 +12,7 @@ const askQuestionRoutes = express.Router();
 
 
 //  Create a question
-askQuestionRoutes.post('/api/questions', requireAuth, validatequestion, async (req, res, next) => {
+router.post('/api/questions', requireAuth, validatequestion, async (req, res, next) => {
   const { Question } = req.params;
   
   const { id: userId } = req.user;
@@ -29,7 +29,7 @@ askQuestionRoutes.post('/api/questions', requireAuth, validatequestion, async (r
 );
 
 // GET /api/session/questions - Get all questions of the current user
-askQuestionRoutes.get('/api/session', requireAuth, async (req, res, next) => {
+router.get('/api/session', requireAuth, async (req, res, next) => {
     const { id: email } = req.user;
 
     try {
@@ -64,7 +64,7 @@ askQuestionRoutes.get('/api/session', requireAuth, async (req, res, next) => {
 
 
 // PUT /api/questions/:questionId - Edit a question
-askQuestionRoutes.put('/api/questions/:questionId', requireAuth, validatequestion, async (req, res, next) => {
+router.put('/api/questions/:questionId', requireAuth, validatequestion, async (req, res, next) => {
   const { questionId } = req.params;
 //   const { questionBody } = req.body;
   const { id: userId } = req.user;
@@ -100,7 +100,7 @@ askQuestionRoutes.put('/api/questions/:questionId', requireAuth, validatequestio
 });
 
 // DELETE /api/questions/:questionId - Delete a question
-askQuestionRoutes.delete('/api/questions/:questionId', requireAuth, async (req, res, next) => {
+router.delete('/api/questions/:questionId', requireAuth, async (req, res, next) => {
   const { questionId } = req.params;
   const { id: userId } = req.user;
 
@@ -134,4 +134,4 @@ askQuestionRoutes.delete('/api/questions/:questionId', requireAuth, async (req, 
   }
 });
 
-export default askQuestionRoutes;
+export default router;

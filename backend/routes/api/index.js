@@ -21,7 +21,7 @@ router.use("/ask", askQuestionRoutes);
 
 
 const API=axios.create({
-  baseURL:"http://localhost:5000"
+  baseURL:"/"
 });
 
 API.interceptors.request.use((req)=>{

@@ -18,7 +18,7 @@ function ProfilePage() {
     const {checkAuth} = useContext(UserContext)
     const [redirectToTheHomePage, setRedirectToTheHomePage] = useState(false)
     function logout() {
-        axios.post('http://localhost:3001/logout', {withCredentials: true})
+        axios.post('/logout', {withCredentials: true})
         .then(() => {
             checkAuth().then(() => setRedirectToTheHomePage(true));
             setRedirectToTheHomePage(true);

@@ -2,11 +2,10 @@ import express from 'express';
 import db from '../../db.js';
 
 
-const QuestionRoutes = express.Router();
+const router = express.Router();
 
 
-
-QuestionRoutes.post('/api/questions', (req, res) => {
+router.post('/api/questions', (req, res) => {
     const {title,content} = req.body;
     const {token} = req.cookies;
     db.select('id')
@@ -30,7 +29,7 @@ QuestionRoutes.post('/api/questions', (req, res) => {
 
 })
 
-QuestionRoutes.get('/api/questions/:id', (req, res) => {
+router.get('/api/questions/:id', (req, res) => {
     const id = req.params.id;
     db.select('*')
     .from('post')
@@ -43,7 +42,7 @@ QuestionRoutes.get('/api/questions/:id', (req, res) => {
 });
 
 
-QuestionRoutes.get('/api/questions', (res,req) => {
+router.get('/api/questions', (res,req) => {
     db.select('*')
     .from('posts')
     .where({parent_id: null})
@@ -53,4 +52,5 @@ QuestionRoutes.get('/api/questions', (res,req) => {
     })
     .catch(() => res.sendStatus(422))
 });
-export default QuestionRoutes
+
+export default router;

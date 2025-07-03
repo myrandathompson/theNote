@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const QuestionStat = styled.div`
 text-align: center;
 display: inline-block;
-font-size 35px;
+font-size: 35px;
 color: white;
 span{
     font-size: 15px;
@@ -50,10 +50,9 @@ border-top: 1px solid #555;
 `;
 
 const WhoandWhen = styled.div`
-dispaly: inline-block;
+display: inline-block;
 color: white;
 font-size: 14px;
-float: right;
 padding: 10px 0;
 `;
 

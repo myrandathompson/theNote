@@ -20,7 +20,7 @@ function QuestionPage() {
     }
     useEffect(() => fetchQuestion(), []);
     return (
-        <>
+       
         <Container>
             {question && (
                 <>
@@ -35,7 +35,7 @@ function QuestionPage() {
         </Container>
         
         
-        </>
+     
     );
 }
 
