@@ -4,11 +4,24 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import cookieParser from 'cookie-parser';
 import db from '../../db.js';
+import  {login,signup} from '../controller/auth.js'
+import { getallusers,updateprofile } from "../controller/users.js";
+import auth from "../middleware/auth.js"
+
+
+const router = express.Router();
+
+router.post("/signup",signup);
+router.post("/login",login);
+
+router.get("/getallusers",getallusers)
+
+router.patch("/update/:id",auth,updateprofile)
+
 
 const secret = jwt.sign({ foo: 'bar'}, 'shhhhh');
 
 
-const router = express.Router();
 
 // Middleware to parse cookies
 router.use(cookieParser());

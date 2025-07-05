@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import {useEffect,useState} from 'react';
 import axios from 'axios';
-import Header from "./Header";
+import Header from "../Header";
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
