@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './AskPage.css'
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { askQuestion } from '../action/question';
+import { askQuestion } from '../../action/question';
 
 const AskPage = () => {
     const navigate = useNavigate();

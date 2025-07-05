@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import QuestionRow from './QuestionRow';
-import Header from './Header';
-import GlobalHeader from './GlobalHeader';
-import BlueButton from './BlueButton';
+import Header from '../Header';
+import GlobalHeader from '../GlobalHeader';
+import BlueButton from '../buttons/BlueButton';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
