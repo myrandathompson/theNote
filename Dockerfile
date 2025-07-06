@@ -27,11 +27,20 @@
     
         WORKDIR /app/frontend
         
-        COPY frontend/package.json frontend/package-lock.json ./
+
+        
+        # COPY frontend/package.json frontend/package-lock.json ./
+        COPY frontend/ ./
+       
+       
+       
         RUN npm install
         
-        COPY frontend/ ./
+        
+       
+        
         RUN npm run build
+        
         
         
         # Start Express server

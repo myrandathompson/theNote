@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import QuestionRow from './QuestionRow';
 import Header from '../Header';
 import GlobalHeader from '../GlobalHeader';
-import BlueButton from '../buttons/BlueButton';
+import BlueButton from './BlueButton';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ function QuestionsPage() {
   const [questions, setQuestions] = useState([]);
 
   function fetchQuestions() {
-    axios.get('/questions', { withCredentials: true })
+    axios.get('/question', { withCredentials: true })
       .then(response => setQuestions(response.data))
       .catch(error => console.error("Error fetching questions:", error));
   }

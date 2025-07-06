@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Layout from "./pages/Layout";
 import NoPage from './pages/NoPage';
-import QuestionsPage from './pages/QuestionsPage';
-import AskPage from './pages/AskPage';
+import QuestionsPage from './pages/QuestionsPage/QuestionPage';
+import AskPage from './pages/AskPage/AskPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-import QuestionPage from './pages/QuestionPage';
+import QuestionPage from './pages/QuestionsPage/QuestionPage';
 import { UserContext } from './context/UserContext';
+import ProfilePage from './pages/Profile/ProfilePage';
 
 export default function App() {
   const [user] = useState(null);
@@ -18,12 +19,14 @@ export default function App() {
       <UserContext.Provider value={{ user }}>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<QuestionsPage />} />
+            <Route index element={<LoginPage/>} />
             <Route path="/ask" element={<AskPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/questions" element={<QuestionsPage />} />
             <Route path="/question" element={<QuestionPage />} />
+            <Route path="/question/:id" element={<QuestionPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

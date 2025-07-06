@@ -5,8 +5,8 @@ import './UserProfile.css';
 
 
 const editProfileForm = ({ currentUser, setSwitch }) => {
-    const [name, setname] = useSTate(currentUser?.result?.name)
-    const [about, setAbout] = sueState(currentUser?.result?.about)
+    const [name, setname] = useState(currentUser?.result?.name)
+    const [about, setAbout] = useState(currentUser?.result?.about)
     const [tags, setTags] = useState([])
     const dispatch = useDispatch();
 
