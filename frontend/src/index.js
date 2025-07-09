@@ -31,12 +31,12 @@ reportWebVitals();
 // // // import store from './store';                 
 // // import App from './App';                     
 
-// // const root = createRoot(document.getElementById('root'));
-// // root.render(
-// //   <Provider >
-// //     <App />
-// //   </Provider>
-// // );
+// const root = createRoot(document.getElementById('root'));
+// root.render(
+//   <Provider >
+//     <App />
+//   </Provider>
+// );
 
 
 
