@@ -1,6 +1,6 @@
 // backend/routes/api/session.js
 import { Router } from 'express';
-import { setTokenCookie, restoreUser } from '../../utils/auth';
+import { setTokenCookie, restoreUser } from '../utils/auth';
 import { User } from '../../db/models1';
 import { check, validationResult } from 'express-validator';
 // const { handleValidationErrors } = require('../../utils/validation');
