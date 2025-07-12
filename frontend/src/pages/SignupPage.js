@@ -21,14 +21,14 @@ class SignupPage extends Component {
     this.state = {
       email: '',
       password: '',
-      redirectToHomepage: false,
+      redirectToHomepage: true,
     };
   }
 
   signup() {
     
     axios.post(
-        './signup', 
+        '/signup', 
         {
           email: this.state.email,
           password: this.state.password,
@@ -37,7 +37,7 @@ class SignupPage extends Component {
       
       .then(() => {
         this.context.checkAuth().then(() => {
-          this.setState({error:false, redirectToHomepage: true});
+          this.setState({error:false, Navigate: '/'});
 
         })
         
@@ -63,7 +63,7 @@ class SignupPage extends Component {
           <Input placeholder={'email'} type="email" value={this.state.email}
           onChange={Event => this.setState({email:Event.target.value})} />
           <Input placeholder={'password'} type="password" value={this.state.password}
-          autocomplete={'new-password'}
+          autoComplete={'new-password'}
           onChange={ev => this.setState({ password:ev.target.value})} />
           <BlueButton onClick={() => this.signup()}>Signup</BlueButton>
         </form>

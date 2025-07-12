@@ -13,17 +13,17 @@ API.interceptors.request.use((req)=>{
     return req;
 })
 
-export const login=(authdata)=>API.post("user/login",authdata);
-export const signup=(authdata)=>API.post("user/signup",authdata);
-export const getallusers=()=> API.get("/user/getallusers");
-export const updateprofile=(id,updatedata)=>API.patch(`user/update/${id}`,updatedata)
+export const login = (authData) => API.post("user/login", authData);
+export const signup = (authData) => API.post("user/signup", authData);
+export const getAllUsers = () => API.get("/user/getallusers");
+export const updateProfile = (id, updateData) => API.patch(`user/update/${id}`, updateData)
 
 
-export const postquestion=(questiondata)=>API.post("/questions/Ask",questiondata);
-export const getallquestions=()=>API.get("/questions/get");
-export const deletequestion=(id)=>API.delete(`/questions/delete/${id}`);
-export const votequestion=(id,value)=>API.patch(`/questions/vote/${id}`,{value});
+export const postQuestion = (questionData) => API.post("/questions/Ask", questionData);
+export const getAllQuestions = () => API.get("/questions/get");
+export const deleteQuestion = (id) => API.delete(`/questions/delete/${id}`);
+export const voteQuestion = (id,value) => API.patch(`/questions/vote/${id}`,{value});
 
 
-export const postanswer=(id,noofanswers,answerbody,useranswered,userid)=>API.patch(`/answer/post/${id}`,{noofanswers,answerbody,useranswered,userid});
-export const deleteanswer=(id,answerid,noofanswers)=>API.patch(`/answer/delete/${id}`,{answerid,noofanswers});
+export const postAnswer = (id, noOfAnswers, answerBody, userAnswered, userId) => API.patch(`/answer/post/${id}`, {noOfAnswers, answerBody, userAnswered, userId});
+export const deleteAnswer = (id, answerId, noOfAnswers) => API.patch(`/answer/delete/${id}`, {answerId, noOfAnswers});

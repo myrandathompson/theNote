@@ -10,12 +10,17 @@ import cookieParser from 'cookie-parser';
 // ...
 import { ValidationError } from 'sequelize';
 import { environment } from './db/config';
+
+
+
 const isProduction = environment === 'production';
 
 import sessionRouter from './routes/api/session';
 // backend/app.js
 import routes from './routes';
 import { restoreUser } from './utils/auth';
+
+
 const app = express();
 import userRouter from './routes/api/user';
 

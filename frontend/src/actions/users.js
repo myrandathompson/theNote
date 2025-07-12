@@ -1,4 +1,4 @@
-import * as api from "../api/users.js";
+import * as api from "../api/index.js";
 
 export const fetchAllUsers = () => async (dispatch) => {
     try {

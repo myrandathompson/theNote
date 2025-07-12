@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './AskPage.css'
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { askQuestion } from '../../action/question';
+import { askQuestion } from '../../actions/question';
 
 const AskPage = () => {
     const navigate = useNavigate();
@@ -11,11 +11,14 @@ const AskPage = () => {
     const [questionTitle, setQuestionTitle] = useState("");
     const [questionBody, setQuestionBody] = useState("");
     const [questionTag, setQuestionTag] = useState("");
-    const handleSubmit = (e) => {
+    
+    
+    
+    const handlesumit = (e) => {
         e.preventDefault();
         if (user) {
             if (questionBody && questionTitle && questionTag) {
-                dispatch(askQuestion({questionTitle, questionBody, questionTag, userposted:user.result.name}, navigate))
+                dispatch(askQuestion({questionTitle, questionBody, questionTag, userPosted:user.result.name}, navigate))
                 alert("Question Posted Successful")
             } else {
                 alert("Missing all fields")
@@ -34,7 +37,7 @@ const AskPage = () => {
         <div className="askQuestion">
             <div className="askQuestionContainer">
                 <h1>Ask A Question</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handlesumit}>
                     <div className="askFormContainer">
                         <label htmlFor="askQuestionTile">
                             <h4>Title</h4>

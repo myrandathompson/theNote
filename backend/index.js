@@ -1,11 +1,11 @@
-import express from 'express';
-// import mongoose from 'mongoose';
-import cors from 'cors';
 import dotenv from 'dotenv';
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
 import userRoutes from './routes/userRoutes.js';
 import questionRoutes from './routes/questionRoutes.js';
 import askQuestionRoutes from './routes/askQuestionRoutes.js';
-
 
 const app = express();
 dotenv.config();
@@ -24,10 +24,10 @@ app.get('/', (req, res) => {
   res.send('API is running')
 })
 
-const PORT = process.env.PORT || 5000;
-const database_url = process.env.DATABASE_URL 
+const PORT = process.env.PORT || 5004;
+const database_url = process.env.MONGO_URI;
 
-postgres.connect(database_url)
+mongoose.connect(database_url)
   .then(() => {
     console.log('Connected to the database');
     app.listen(PORT, () => {
@@ -71,7 +71,7 @@ postgres.connect(database_url)
 
 // Add a XSRF-TOKEN cookie in development
 if (process.env.NODE_ENV !== 'production') {
-  router.get("/api/csrf/restore", (req, res) => {
+  app.get("/api/csrf/restore", (req, res) => {
     const csrfToken = req.csrfToken();
     res.cookie("XSRF-TOKEN", csrfToken);
     res.status(200).json({
@@ -80,4 +80,4 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-export default router;
+export default app;

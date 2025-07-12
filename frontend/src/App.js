@@ -1,4 +1,37 @@
-// src/App.js
+// import React from 'react'
+// import { Routes,Route } from 'react-router-dom'
+// import Home from './pages/Home.js'
+// import AskPage from './pages/AskPage/AskPage.js'
+// import Auth from './pages/auth/auth.js'
+// import Question from './pages/QuestionsPage/QuestionsPage.js'
+// import DisplayQuestion from './pages/QuestionsPage/DisplayQuestion.js'
+// import Tags from './pages/Tags/Tags.js'
+// import Users from './pages/Users/Users.js'
+// import ProfilePage from './pages/Profile/ProfilePage.js'
+
+
+
+// function Allroutes({slidein}) {
+//   return (
+//     <Routes>
+//         <Route path='/' element={<Home slidein={slidein} />}/>
+//         <Route path='/Askquestion' element={<AskPage />}/>
+//         <Route path='/Auth' element={<Auth />}/>
+//         <Route path='/Question' element={<Question slidein={slidein} />}/>
+//         <Route path='/Question/:id' element={<DisplayQuestion slidein={slidein} />}/>
+//         <Route path='/Tags' element={<Tags slidein={slidein} />}/>
+//         <Route path='/Users' element={<Users slidein={slidein} />}/>
+//         <Route path='/Users/:id' element={<ProfilePage slidein={slidein} />}/>
+//     </Routes>
+//   )
+// }
+
+// export default Allroutes
+
+
+
+
+// // src/App.js
 import React, { useState } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Layout from "./pages/Layout";
